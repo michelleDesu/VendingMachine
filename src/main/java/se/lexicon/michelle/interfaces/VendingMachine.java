@@ -1,4 +1,4 @@
-package se.lexicon.michelle.model;
+package se.lexicon.michelle.interfaces;
 
 public interface VendingMachine {
     void addCurrency (int amount);
