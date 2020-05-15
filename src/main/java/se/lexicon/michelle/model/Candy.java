@@ -36,11 +36,12 @@ public class Candy implements ICandy {
      * @throws IllegalArgumentException exception
      */
     @Override
-    public void AddIngredients(String ingredient, String[] ingredients){
+    public void addIngredients(String ingredient, String[] ingredients){
             if(ingredient == null){
                 throw new IllegalArgumentException("ingredient can't be empty");
             }
             ingredients = Product.addStringToArray(ingredients, ingredient);
+            setIngredients(ingredients);
     }
 
 

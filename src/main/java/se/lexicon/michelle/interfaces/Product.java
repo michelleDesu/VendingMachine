@@ -20,7 +20,7 @@ public interface Product {
     }
     static String[] addStringToArray(String[] array, String toAdd){
         String[] newArray = Arrays.copyOf(array, array.length+ 1);
-        newArray[array.length-1] = toAdd;
+        newArray[newArray.length-1] = toAdd;
         return newArray;
     }
 
