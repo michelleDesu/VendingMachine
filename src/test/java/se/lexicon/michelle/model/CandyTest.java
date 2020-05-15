@@ -152,4 +152,19 @@ public class CandyTest {
         candy.setIngredients(newIngredients);
         assertArrayEquals(expected, candy.getIngredients());
     }
+
+    @Test
+    public void testEquals_Symmetric() {
+         // equals and hashCode check name field value
+        Candy expected = new Candy(
+                1,
+                "Chocolate",
+                20,
+                "Marabou",
+                "1365",
+                ingredients
+        );
+        assertTrue(expected.equals(candy) && candy.equals(expected));
+        assertTrue(expected.hashCode() == candy.hashCode());
+    }
 }
