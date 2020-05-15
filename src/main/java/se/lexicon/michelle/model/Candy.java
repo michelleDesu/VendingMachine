@@ -90,6 +90,7 @@ public class Candy implements ICandy {
         return calories;
     }
 
+
     @Override
     public String getProductName() {
         return productName;
