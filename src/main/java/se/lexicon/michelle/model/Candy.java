@@ -7,10 +7,10 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Candy implements ICandy {
-    String calories,
+    private String calories,
             productName,
             brand;
-    String[] ingredients;
+    private String[] ingredients;
 
     private final int COST;
     private final int PRODUCT_ID;

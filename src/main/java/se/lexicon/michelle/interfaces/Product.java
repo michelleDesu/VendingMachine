@@ -10,14 +10,6 @@ public interface Product {
     int getCost();
     String getProductName();
 
-    static boolean arrayContainsString(String[] array, String string){
-        for (String s : array){
-            if(s.equalsIgnoreCase(string)){
-                return true;
-            }
-        }
-        return false;
-    }
     static String[] addStringToArray(String[] array, String toAdd){
         String[] newArray = Arrays.copyOf(array, array.length+ 1);
         newArray[newArray.length-1] = toAdd;

@@ -13,6 +13,7 @@ public class CandyTest {
 
     @Before
     public void setUp() throws Exception {
+        ProductSequencer.resetProductId();
 
         ingredients = new String[]{
                 "Milk",
@@ -30,9 +31,6 @@ public class CandyTest {
 
     }
 
-    @Test
-    public void arrayContainsString() {
-    }
 
     @Test
     public void addStringToArray() {
@@ -47,7 +45,7 @@ public class CandyTest {
                 "sugar"
         };
         candy.addIngredients("sugar" , ingredients);
-        assertArrayEquals(expected, candy.getIngredients());;
+        assertArrayEquals(expected, candy.getIngredients());
 
     }
     @Test(expected = IllegalArgumentException.class)
@@ -59,49 +57,99 @@ public class CandyTest {
 
     @Test
     public void examine() {
+        StringBuilder expectedProductInfo = new StringBuilder();
+        expectedProductInfo.append("Name: Chocolate\n");
+        expectedProductInfo.append("ID: 1\n");
+        expectedProductInfo.append("Price: 20\n");
+        expectedProductInfo.append("Brand: Marabou\n");
+        expectedProductInfo.append("Calories: 1365\n");
+        expectedProductInfo.append("The ingredients are:\n");
+        for (String ingredient : ingredients) {
+            expectedProductInfo.append(ingredient).append("\n");
+        }
+        String actual = candy.examine();
+
+        assertEquals(expectedProductInfo.toString(), actual);
     }
 
     @Test
     public void getCost() {
+        int expected = 20;
+        assertEquals(expected, candy.getCost());
     }
 
     @Test
     public void use() {
+        String expected = "you now consumed a " + candy.getProductName() + " with the id of " + candy.getProductID();
+        assertEquals(expected, candy.use());
     }
 
     @Test
     public void getProductID() {
+        int expected = 1;
+        assertEquals( expected, candy.getProductID());
     }
 
     @Test
     public void getCalories() {
+        String expected = "1365";
+        assertEquals(expected, candy.getCalories());
     }
 
     @Test
     public void getProductName() {
+        String expected = "Chocolate";
+        assertEquals(expected, candy.getProductName());
     }
 
     @Test
     public void getBrand() {
+        String expected = "Marabou";
+        assertEquals(expected, candy.getBrand());
     }
 
     @Test
     public void getIngredients() {
+       String[] expected = ingredients;
+       assertArrayEquals(expected, candy.getIngredients());
     }
 
     @Test
     public void setBrand() {
+        String expected = "Änglamark";
+        candy.setBrand("Änglamark");
+        assertEquals(expected, candy.getBrand());
     }
 
     @Test
     public void setCalories() {
+        String expected = "200";
+        candy.setCalories("200");
+        assertEquals(expected, candy.getCalories());
     }
 
     @Test
     public void setProductName() {
+        String expected = "Ahlgrens Bilar";
+        candy.setProductName("Ahlgrens Bilar");
+        assertEquals(expected, candy.getProductName());
     }
 
     @Test
     public void setIngredients() {
+        String[] expected = {
+                "Milk",
+                "Cacao",
+                "Wheat",
+                "sugar"
+        };
+        String[] newIngredients = {
+                "Milk",
+                "Cacao",
+                "Wheat",
+                "sugar"
+        };
+        candy.setIngredients(newIngredients);
+        assertArrayEquals(expected, candy.getIngredients());
     }
 }
