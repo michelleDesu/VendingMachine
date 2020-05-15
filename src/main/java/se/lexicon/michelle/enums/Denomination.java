@@ -17,4 +17,8 @@ public enum Denomination {
         Denomination(int denomination) {
            maxDenomination = denomination;
         }
+        public int getMaxDenomination(){
+                return maxDenomination;
+        }
+
 }
