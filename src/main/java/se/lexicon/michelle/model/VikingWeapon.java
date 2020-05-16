@@ -2,6 +2,8 @@ package se.lexicon.michelle.model;
 
 import se.lexicon.michelle.interfaces.IVikingWeapon;
 
+import java.util.Objects;
+
 public class VikingWeapon implements IVikingWeapon {
     boolean ammunition;
     String  function,
@@ -143,4 +145,30 @@ public class VikingWeapon implements IVikingWeapon {
         this.productName = productName;
     }
 
+    /**
+     * Overrides the equal method
+     * @param o Object
+     * @return boolean
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VikingWeapon that = (VikingWeapon) o;
+        return ammunition == that.ammunition &&
+                PRODUCT_ID == that.PRODUCT_ID &&
+                COST == that.COST &&
+                Objects.equals(function, that.function) &&
+                Objects.equals(type, that.type) &&
+                Objects.equals(productName, that.productName);
+    }
+
+    /**
+     * overrides the hashCode method
+     * @return int
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(ammunition, function, type, productName, PRODUCT_ID, COST);
+    }
 }
