@@ -3,6 +3,8 @@ package se.lexicon.michelle.model;
 import se.lexicon.michelle.interfaces.IVikingJewelry;
 import se.lexicon.michelle.interfaces.Product;
 
+import java.util.Arrays;
+
 public class VikingJewelry implements IVikingJewelry {
     private String  function,
                     productName,
@@ -45,27 +47,41 @@ public class VikingJewelry implements IVikingJewelry {
 
     @Override
     public String examine() {
-        return null;
+        StringBuilder productInfo = new StringBuilder();
+        productInfo.append("Name: ").append(getProductName()).append("\n");
+        productInfo.append("ID: ").append(getProductID()).append("\n");
+        productInfo.append("Price: ").append(getCost()).append("\n");
+        productInfo.append("Type: ").append(getType()).append("\n");
+        productInfo.append("Functionality: ").append(getFunction()).append("\n");
+        productInfo.append("The materials are:\n");
+        for(String material : materials){
+            productInfo.append(material).append("\n");
+        }
+        return productInfo.toString();
+    }
+
+    private String getType() {
+        return this.type;
     }
 
     @Override
     public String use() {
-        return null;
+        return "you now received a " + getProductName() + " with the id of " + getProductID();
     }
 
     @Override
     public int getProductID() {
-        return 0;
+        return PRODUCT_ID;
     }
 
     @Override
     public int getCost() {
-        return 0;
+        return COST;
     }
 
     @Override
     public String getProductName() {
-        return null;
+        return productName;
     }
 
     public void setProductName(String productName) {
@@ -82,15 +98,12 @@ public class VikingJewelry implements IVikingJewelry {
         return function;
     }
 
+    public String[] getMaterials() {
+        return Arrays.copyOf(materials,materials.length);
+    }
+
     public String getMaterial() {
         return material;
     }
 
-    public int getCOST() {
-        return COST;
-    }
-
-    public int getPRODUCT_ID() {
-        return PRODUCT_ID;
-    }
 }
