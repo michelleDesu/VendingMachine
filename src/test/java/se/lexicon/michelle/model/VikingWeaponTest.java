@@ -19,7 +19,6 @@ public class VikingWeaponTest {
                 "Seax",
                 "Stabbing Weapon",
                 false);
-
     }
 
     @Test
