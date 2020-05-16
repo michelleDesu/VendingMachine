@@ -93,8 +93,8 @@ public class VikingJewelryTest {
     @Test
     public void setFunction() {
         String expected = "Pin on your chest";
-        jewelry.setFunction("Pin on your chest");
-        assertEquals(expected, jewelry.getFunction());
+        jewelry.setFunctionality("Pin on your chest");
+        assertEquals(expected, jewelry.getFunctionality());
     }
 
 
@@ -127,7 +127,7 @@ public class VikingJewelryTest {
     @Test
     public void getFunction() {
         String expected= "Put on apron dress";
-        assertEquals(expected, jewelry.getFunction());
+        assertEquals(expected, jewelry.getFunctionality());
     }
 
     @Test

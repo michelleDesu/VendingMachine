@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class VikingJewelry implements IVikingJewelry {
-    private String  function,
+    private String functionality,
                     productName,
                     type;
     private final int COST;
@@ -21,11 +21,11 @@ public class VikingJewelry implements IVikingJewelry {
      * @param productID String
      * @param cost int
      * @param type String
-     * @param function String
+     * @param functionality String
      * @param materials String[]
      */
-    public VikingJewelry( String productName, int productID, int cost, String type, String function, String[] materials) {
-        setFunction(function);
+    public VikingJewelry(String productName, int productID, int cost, String type, String functionality, String[] materials) {
+        setFunctionality(functionality);
         setProductName(productName);
         setType(type);
         this.materials = materials;
@@ -46,11 +46,11 @@ public class VikingJewelry implements IVikingJewelry {
 
     /**
      * Set the functionality of the jewelry
-     * @param function String
+     * @param functionality String
      */
     @Override
-    public void setFunction(String function) {
-        this.function = function;
+    public void setFunctionality(String functionality) {
+        this.functionality = functionality;
     }
 
     /**
@@ -78,7 +78,7 @@ public class VikingJewelry implements IVikingJewelry {
         productInfo.append("ID: ").append(getProductID()).append("\n");
         productInfo.append("Price: ").append(getCost()).append("\n");
         productInfo.append("Type: ").append(getType()).append("\n");
-        productInfo.append("Functionality: ").append(getFunction()).append("\n");
+        productInfo.append("Functionality: ").append(getFunctionality()).append("\n");
         productInfo.append("The materials are:\n");
         for(String material : materials){
             productInfo.append(material).append("\n");
@@ -151,8 +151,8 @@ public class VikingJewelry implements IVikingJewelry {
      * returns the functionality of a jewelry
      * @return String
      */
-    public String getFunction() {
-        return function;
+    public String getFunctionality() {
+        return functionality;
     }
 
     /**
@@ -175,7 +175,7 @@ public class VikingJewelry implements IVikingJewelry {
         VikingJewelry that = (VikingJewelry) o;
         return COST == that.COST &&
                 PRODUCT_ID == that.PRODUCT_ID &&
-                Objects.equals(function, that.function) &&
+                Objects.equals(functionality, that.functionality) &&
                 Objects.equals(productName, that.productName) &&
                 Objects.equals(type, that.type) &&
                 Arrays.equals(materials, that.materials);
@@ -187,7 +187,7 @@ public class VikingJewelry implements IVikingJewelry {
      */
     @Override
     public int hashCode() {
-        int result = Objects.hash(function, productName, type, COST, PRODUCT_ID);
+        int result = Objects.hash(functionality, productName, type, COST, PRODUCT_ID);
         result = 31 * result + Arrays.hashCode(materials);
         return result;
     }

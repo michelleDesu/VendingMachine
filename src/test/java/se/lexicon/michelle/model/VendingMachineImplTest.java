@@ -11,9 +11,11 @@ import static org.junit.Assert.*;
 
 public class VendingMachineImplTest {
     private VendingMachineImpl vendingMachine;
-    private Candy chocolate,
-            ahlgrensBilar;
-    private String[] ingredients;
+    private Candy chocolate;
+    private VikingWeapon sword;
+    private VikingJewelry brooch;
+    private String[]    ingredients,
+                        materials;
     private Product[] products;
 
     @Before
@@ -29,6 +31,10 @@ public class VendingMachineImplTest {
                 "wheat",
                 "gelatine"
         };
+        materials = new String[]{
+                "Metal",
+                "Bronze"
+        };
         chocolate = new Candy(
                 ProductSequencer.nextID(),
                 "Milk chocolate",
@@ -37,17 +43,29 @@ public class VendingMachineImplTest {
                 "1536",
                 ingredients
         );
-        ahlgrensBilar = new Candy(
+        sword = new VikingWeapon(
+                "Skuld",
                 ProductSequencer.nextID(),
-                "Ahlgrens Bilar",
-                15,
-                "Ahlgrens",
-                "250",
-                ingredients
+                1500,
+                "Sword",
+                "Swings around",
+                false
+        );
+        brooch = new VikingJewelry(
+          "p-51",
+          ProductSequencer.nextID(),
+          600,
+          "Tortoise brooch",
+                "Holds up the apron dress",
+                materials
         );
 
+
+
         products = vendingMachine.addProduct(products, chocolate);
-        products = vendingMachine.addProduct(products, ahlgrensBilar);
+        products = vendingMachine.addProduct(products, sword);
+        products = vendingMachine.addProduct(products,brooch);
+
     }
 
     @Test (expected = IllegalArgumentException.class)
@@ -129,7 +147,6 @@ public class VendingMachineImplTest {
 
     @Test(expected = NonExistingProduct.class)
     public void given_incorrect_id_getDescription_should_throwException() throws NonExistingProduct {
-
         vendingMachine.getDescription(0);
 
     }
@@ -144,9 +161,10 @@ public class VendingMachineImplTest {
 
     @Test
     public void getProducts() {
-        String[] expectedProducts = new String[2];
+        String[] expectedProducts = new String[3];
         expectedProducts[0] = chocolate.getProductName() + " " + chocolate.getProductID();
-        expectedProducts[1] = ahlgrensBilar.getProductName() + " " + ahlgrensBilar.getProductID();
+        expectedProducts[1] = sword.getProductName() + " " + sword.getProductID();
+        expectedProducts[2] = brooch.getProductName() + " " + brooch.getProductID();
 
 
         assertArrayEquals(expectedProducts, vendingMachine.getProducts());
