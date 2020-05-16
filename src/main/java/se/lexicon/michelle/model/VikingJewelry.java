@@ -87,14 +87,6 @@ public class VikingJewelry implements IVikingJewelry {
     }
 
     /**
-     * returns type of jewelry
-     * @return String
-     */
-    private String getType() {
-        return this.type;
-    }
-
-    /**
      * returns a string describing what you got and what you did with it.
      * @return String
      */
@@ -106,7 +98,7 @@ public class VikingJewelry implements IVikingJewelry {
 
     /**
      * returns the Id of the product
-     * @return String
+     * @return int
      */
     @Override
     public int getProductID() {
@@ -145,6 +137,14 @@ public class VikingJewelry implements IVikingJewelry {
      */
     private void setMaterials(String[] materials) {
         this.materials = materials;
+    }
+
+    /**
+     * returns type of jewelry
+     * @return String
+     */
+    public String getType() {
+        return this.type;
     }
 
     /**

@@ -79,17 +79,20 @@ public class CandyTest {
 
         assertEquals(expectedProductInfo.toString(), actual);
     }
+    @Test
+    public void use() {
+
+        String expected= "you now received a " + candy.getProductName() +
+                " with the id of " + candy.getProductID()
+                + "\n";
+
+        assertEquals(expected,candy.use() );
+    }
 
     @Test
     public void getCost() {
         int expected = 20;
         assertEquals(expected, candy.getCost());
-    }
-
-    @Test
-    public void use() {
-        String expected = "you now consumed a " + candy.getProductName() + " with the id of " + candy.getProductID() + "\n";
-        assertEquals(expected, candy.use());
     }
 
     @Test
@@ -173,6 +176,6 @@ public class CandyTest {
                 ingredients
         );
         assertTrue(expected.equals(candy) && candy.equals(expected));
-        assertTrue(expected.hashCode() == candy.hashCode());
+        assertEquals(expected.hashCode(), candy.hashCode());
     }
 }

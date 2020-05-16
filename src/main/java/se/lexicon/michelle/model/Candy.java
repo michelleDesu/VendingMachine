@@ -65,24 +65,14 @@ public class Candy implements ICandy {
     }
 
     /**
-     * returns the price of the product
-     * @return int
-     */
-    @Override
-    public int getCost() {
-        return COST;
-    }
-
-
-    /**
      * use / consume the product.
      * @return String
      */
     @Override
     public String use() {
-        return "you now consumed a " + getProductName() + " with the id of " + getProductID() + "\n";
+        return "you now received a " + getProductName() +
+                " with the id of " + getProductID() + "\n";
     }
-
     /**
      * returns the products id
      * @return int
@@ -90,6 +80,15 @@ public class Candy implements ICandy {
     @Override
     public int getProductID() {
         return PRODUCT_ID;
+    }
+
+    /**
+     * returns the price of the product
+     * @return int
+     */
+    @Override
+    public int getCost() {
+        return COST;
     }
 
     /**
@@ -101,7 +100,7 @@ public class Candy implements ICandy {
     }
 
     /**
-     * returns the product name
+     * returns the products name
      * @return String
      */
     @Override
