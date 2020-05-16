@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class VikingWeapon implements IVikingWeapon {
     private boolean ammunition;
-    private String  function,
+    private String functionality,
             type,
             productName;
     private final int   PRODUCT_ID,
@@ -18,12 +18,12 @@ public class VikingWeapon implements IVikingWeapon {
      * @param productId int
      * @param price int
      * @param type String
-     * @param function String
+     * @param functionality String
      * @param ammunition boolean
      */
-    public VikingWeapon( String productName, int productId, int price, String type, String function, boolean ammunition ) {
+    public VikingWeapon(String productName, int productId, int price, String type, String functionality, boolean ammunition ) {
         setAmmunition(ammunition);
-        setFunction(function);
+        setFunctionality(functionality);
         setType(type);
         setProductName(productName);
         this.PRODUCT_ID = productId;
@@ -41,11 +41,11 @@ public class VikingWeapon implements IVikingWeapon {
 
     /**
      * Sets the functionality of the weapon
-     * @param function String
+     * @param functionality String
      */
     @Override
-    public void setFunction(String function) {
-        this.function = function;
+    public void setFunctionality(String functionality) {
+        this.functionality = functionality;
     }
 
     /**
@@ -63,15 +63,14 @@ public class VikingWeapon implements IVikingWeapon {
      */
     @Override
     public String examine() {
-        StringBuilder productInfo = new StringBuilder();
-        productInfo.append("Name: ").append(getProductName()).append("\n");
-        productInfo.append("ID: ").append(getProductID()).append("\n");
-        productInfo.append("Price: ").append(getCost()).append("\n");
-        productInfo.append("Type: ").append(getType()).append("\n");
-        productInfo.append("Functionality: ").append(getFunction()).append("\n");
-        productInfo.append("Have Ammunition: ").append(haveAmmunition()).append("\n");
 
-        return productInfo.toString();
+        String productInfo = "Name: " + getProductName() + "\n" +
+                "ID: " + getProductID() + "\n" +
+                "Price: " + getCost() + "\n" +
+                "Type: " + getType() + "\n" +
+                "Functionality: " + getFunctionality() + "\n" +
+                "Have Ammunition: " + haveAmmunition() + "\n";
+        return productInfo;
 
     }
 
@@ -125,8 +124,8 @@ public class VikingWeapon implements IVikingWeapon {
      * returns the functionality of the weapon
      * @return String
      */
-    public String getFunction() {
-        return function;
+    public String getFunctionality() {
+        return functionality;
     }
 
     /**
@@ -158,7 +157,7 @@ public class VikingWeapon implements IVikingWeapon {
         return ammunition == that.ammunition &&
                 PRODUCT_ID == that.PRODUCT_ID &&
                 COST == that.COST &&
-                Objects.equals(function, that.function) &&
+                Objects.equals(functionality, that.functionality) &&
                 Objects.equals(type, that.type) &&
                 Objects.equals(productName, that.productName);
     }
@@ -169,6 +168,6 @@ public class VikingWeapon implements IVikingWeapon {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(ammunition, function, type, productName, PRODUCT_ID, COST);
+        return Objects.hash(ammunition, functionality, type, productName, PRODUCT_ID, COST);
     }
 }
