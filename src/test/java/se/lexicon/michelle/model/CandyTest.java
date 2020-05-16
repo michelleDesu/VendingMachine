@@ -3,6 +3,7 @@ package se.lexicon.michelle.model;
 import org.junit.Before;
 import org.junit.Test;
 import se.lexicon.michelle.data.ProductSequencer;
+import se.lexicon.michelle.interfaces.Product;
 
 import static org.junit.Assert.*;
 
@@ -33,7 +34,14 @@ public class CandyTest {
 
 
     @Test
-    public void addStringToArray() {
+    public void given_string_addStringToArray_should_add_string_to_array() {
+        String[] expected = {
+                "Milk",
+        };
+        String[] actual = new String[0];
+        actual = Product.addStringToArray(actual , "Milk");
+        assertArrayEquals(expected, actual);
+
     }
 
     @Test
