@@ -4,6 +4,7 @@ import se.lexicon.michelle.interfaces.IVikingJewelry;
 import se.lexicon.michelle.interfaces.Product;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class VikingJewelry implements IVikingJewelry {
     private String  function,
@@ -162,4 +163,32 @@ public class VikingJewelry implements IVikingJewelry {
         return Arrays.copyOf(materials,materials.length);
     }
 
+    /**
+     *  overrides the equal method
+     * @param o Object
+     * @return boolean
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VikingJewelry that = (VikingJewelry) o;
+        return COST == that.COST &&
+                PRODUCT_ID == that.PRODUCT_ID &&
+                Objects.equals(function, that.function) &&
+                Objects.equals(productName, that.productName) &&
+                Objects.equals(type, that.type) &&
+                Arrays.equals(materials, that.materials);
+    }
+
+    /**
+     *  overrides the hashcode method
+     * @return int
+     */
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(function, productName, type, COST, PRODUCT_ID);
+        result = 31 * result + Arrays.hashCode(materials);
+        return result;
+    }
 }
