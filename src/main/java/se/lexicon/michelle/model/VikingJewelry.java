@@ -14,11 +14,22 @@ public class VikingJewelry implements IVikingJewelry {
     private final int PRODUCT_ID;
     String[] materials;
 
-    public VikingJewelry( String productName, int productID, int cost, String type, String function, String material) {
+
+    /**
+     * constructor
+     * @param productName String
+     * @param productID String
+     * @param cost int
+     * @param type String
+     * @param function String
+     * @param materials String[]
+     */
+    public VikingJewelry( String productName, int productID, int cost, String type, String function, String[] materials) {
         setFunction(function);
         setProductName(productName);
         setMaterial(material);
-        materials = new String[0];
+        setType(type);
+        this.materials = materials;
 
         this.COST = cost;
         this.PRODUCT_ID = productID;
