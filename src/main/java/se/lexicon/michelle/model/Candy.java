@@ -80,50 +80,88 @@ public class Candy implements ICandy {
      */
     @Override
     public String use() {
-        return "you now consumed a " + getProductName() + " with the id of " + getProductID();
+        return "you now consumed a " + getProductName() + " with the id of " + getProductID() + "\n";
     }
 
+    /**
+     * returns the products id
+     * @return int
+     */
     @Override
     public int getProductID() {
         return PRODUCT_ID;
     }
+
+    /**
+     * returns the calories in the specified product
+     * @return String
+     */
     public String getCalories() {
         return calories;
     }
 
-
+    /**
+     * returns the product name
+     * @return String
+     */
     @Override
     public String getProductName() {
         return productName;
     }
 
+    /**
+     * returns the brand of the product
+     * @return String
+     */
     public String getBrand() {
         return brand;
     }
 
-
+    /**
+     * returns a copy of the ingredients array
+     * @return String[]
+     */
     public String[] getIngredients() {
         return Arrays.copyOf(ingredients , ingredients.length);
     }
 
+    /**
+     * sets the brand of the product
+     * @param brand String
+     */
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
-
-
+    /**
+     * sets the calories of a product
+     * @param calories String
+     */
     public void setCalories(String calories) {
         this.calories = calories;
     }
 
+    /**
+     * Sets the name of the product
+     * @param productName String
+     */
     public void setProductName(String productName) {
         this.productName = productName;
     }
 
+    /**
+     * sets an array of ingredients
+     * @param ingredients String
+     */
     public void setIngredients(String[] ingredients) {
         this.ingredients = ingredients;
     }
 
+    /**
+     * overrides the equal method
+     * @param o object
+     * @return boolean
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -137,6 +175,10 @@ public class Candy implements ICandy {
                 Arrays.equals(ingredients, candy.ingredients);
     }
 
+    /**
+     * overrides the hashcode method
+     * @return int
+     */
     @Override
     public int hashCode() {
         int result = Objects.hash(calories, productName, brand, COST, PRODUCT_ID);

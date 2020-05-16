@@ -8,7 +8,6 @@ import java.util.Arrays;
 public class VikingJewelry implements IVikingJewelry {
     private String  function,
                     productName,
-                    material,
                     type;
     private final int COST;
     private final int PRODUCT_ID;
@@ -27,7 +26,6 @@ public class VikingJewelry implements IVikingJewelry {
     public VikingJewelry( String productName, int productID, int cost, String type, String function, String[] materials) {
         setFunction(function);
         setProductName(productName);
-        setMaterial(material);
         setType(type);
         this.materials = materials;
 
@@ -36,17 +34,29 @@ public class VikingJewelry implements IVikingJewelry {
     }
 
 
-
+    /**
+     * Set the type of the jewelry
+     * @param type String
+     */
     @Override
     public void setType(String type) {
         this.type = type;
     }
 
+    /**
+     * Set the functionality of the jewelry
+     * @param function String
+     */
     @Override
     public void setFunction(String function) {
         this.function = function;
     }
 
+    /**
+     * adds a material to the list of materials
+     * @param materials String[]
+     * @param material String
+     */
     @Override
     public void addMaterials(String[] materials, String material) {
         if(material == null){
@@ -56,6 +66,10 @@ public class VikingJewelry implements IVikingJewelry {
         setMaterials(materials);
     }
 
+    /**
+     * adds all the data for a jewelry in a string.
+     * @return String
+     */
     @Override
     public String examine() {
         StringBuilder productInfo = new StringBuilder();
@@ -71,50 +85,81 @@ public class VikingJewelry implements IVikingJewelry {
         return productInfo.toString();
     }
 
+    /**
+     * returns type of jewelry
+     * @return String
+     */
     private String getType() {
         return this.type;
     }
 
+    /**
+     * returns a string describing what you got and what you did with it.
+     * @return String
+     */
     @Override
     public String use() {
-        return "you now received a " + getProductName() + " with the id of " + getProductID();
+        return "you now received a " + getProductName() + " with the id of " + getProductID() + " That you immediately put on\n";
     }
 
+
+    /**
+     * returns the Id of the product
+     * @return String
+     */
     @Override
     public int getProductID() {
         return PRODUCT_ID;
     }
 
+    /**
+     * returns the cost of the product
+     * @return int
+     */
     @Override
     public int getCost() {
         return COST;
     }
 
+    /**
+     * returns the name of the product
+     * @return String
+     */
     @Override
     public String getProductName() {
         return productName;
     }
 
+    /**
+     * sets the products name
+     * @param productName String
+     */
     public void setProductName(String productName) {
         this.productName = productName;
     }
-    private void setMaterial(String material) {
-        this.material = material;
-    }
+
+    /**
+     * sets the materials to the specified materials.
+     * @param materials String[]
+     */
     private void setMaterials(String[] materials) {
         this.materials = materials;
     }
 
+    /**
+     * returns the functionality of a jewelry
+     * @return String
+     */
     public String getFunction() {
         return function;
     }
 
+    /**
+     * returns a copy of the materials in the materials array
+     * @return String[]
+     */
     public String[] getMaterials() {
         return Arrays.copyOf(materials,materials.length);
-    }
-
-    public String getMaterial() {
-        return material;
     }
 
 }

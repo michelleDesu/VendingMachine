@@ -80,7 +80,7 @@ public class CandyTest {
 
     @Test
     public void use() {
-        String expected = "you now consumed a " + candy.getProductName() + " with the id of " + candy.getProductID();
+        String expected = "you now consumed a " + candy.getProductName() + " with the id of " + candy.getProductID() + "\n";
         assertEquals(expected, candy.use());
     }
 
