@@ -61,7 +61,16 @@ public class VikingWeapon implements IVikingWeapon {
      */
     @Override
     public String examine() {
-        return null;
+        StringBuilder productInfo = new StringBuilder();
+        productInfo.append("Name: ").append(getProductName()).append("\n");
+        productInfo.append("ID: ").append(getProductID()).append("\n");
+        productInfo.append("Price: ").append(getCost()).append("\n");
+        productInfo.append("Type: ").append(getType()).append("\n");
+        productInfo.append("Functionality: ").append(getFunction()).append("\n");
+        productInfo.append("Have Ammunition: ").append(haveAmmunition()).append("\n");
+
+        return productInfo.toString();
+
     }
 
     /**
@@ -70,7 +79,9 @@ public class VikingWeapon implements IVikingWeapon {
      */
     @Override
     public String use() {
-        return null;
+        return "you now received a " + getProductName()
+                + " with the id of " + getProductID()
+                + " That you immediately try out\n";
     }
 
     /**
