@@ -5,11 +5,11 @@ import se.lexicon.michelle.interfaces.IVikingWeapon;
 import java.util.Objects;
 
 public class VikingWeapon implements IVikingWeapon {
-    boolean ammunition;
-    String  function,
+    private boolean ammunition;
+    private String  function,
             type,
             productName;
-    final int   PRODUCT_ID,
+    private final int   PRODUCT_ID,
                 COST;
 
     /**
